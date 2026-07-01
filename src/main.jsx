@@ -102,9 +102,11 @@ const projectSections = [
         label: 'Panthere brooch key visual'
       },
       {
-        kind: 'image',
-        src: '/assets/sections/cartier-panthere.jpg',
-        label: 'Jewelry motion key frame'
+        kind: 'video',
+        src: '/assets/sections/cartier-panthere-film-web.mp4',
+        sources: [{ src: '/assets/sections/cartier-panthere-film-web.mp4', type: 'video/mp4' }],
+        poster: '/assets/sections/cartier-panthere.jpg',
+        label: 'Jewelry motion preview'
       }
     ]
   },
@@ -123,9 +125,11 @@ const projectSections = [
         label: 'Fragrance portrait key frame'
       },
       {
-        kind: 'image',
-        src: '/assets/sections/beauty-fragrance-portrait.jpg',
-        label: 'Light interaction key frame'
+        kind: 'video',
+        src: '/assets/sections/beauty-fragrance-film-web.mp4',
+        sources: [{ src: '/assets/sections/beauty-fragrance-film-web.mp4', type: 'video/mp4' }],
+        poster: '/assets/sections/beauty-fragrance-portrait.jpg',
+        label: 'Light interaction motion'
       }
     ]
   },
@@ -141,7 +145,7 @@ const projectSections = [
       {
         kind: 'image',
         src: '/assets/sections/bmw-m4-shell.jpg',
-        label: 'BMW M4 motion key frame'
+        label: 'BMW M4 key frame'
       },
       {
         kind: 'image',
@@ -152,40 +156,42 @@ const projectSections = [
   },
   {
     folder: '5',
-    title: 'COVER MOTION VISUAL',
-    type: 'Campaign / Cover Film',
-    cover: '/assets/sections/cover-motion.jpg',
+    title: 'MAEXTRO S800 COASTAL FILM',
+    type: 'Automotive / MAEXTRO',
+    cover: '/assets/works/auto-zunjie-01.jpg',
     description:
-      '作为收束型作品板块，用封面图和视频内容承接整套作品集的情绪，形成更完整的商业展示节奏。',
-    stat: 'Final Block',
+      '尊界 S800 海岸公路影像，利用岩石、海雾、车身比例和低角度运动镜头建立豪华旗舰气场。',
+    stat: 'Coastal Film',
     media: [
       {
         kind: 'image',
-        src: '/assets/sections/cover-motion.jpg',
-        label: 'Cover key visual'
+        src: '/assets/works/auto-zunjie-01.jpg',
+        label: 'MAEXTRO coastal key visual'
       },
       {
-        kind: 'image',
-        src: '/assets/sections/cover-motion.jpg',
-        label: 'Final motion key frame'
+        kind: 'video',
+        src: '/assets/sections/maextro-coastal-film-web.mp4',
+        sources: [{ src: '/assets/sections/maextro-coastal-film-web.mp4', type: 'video/mp4' }],
+        poster: '/assets/works/auto-zunjie-01.jpg',
+        label: 'MAEXTRO coastal motion'
       }
     ]
   },
   {
     folder: '6',
-    title: 'CRYSTAL MASK BEAUTY FILM',
-    type: 'Beauty / AI Motion',
-    cover: '/assets/sections/project-06/cover.png',
+    title: 'WENJIE M9 FAMILY DRIVE',
+    type: 'Automotive / Smart Cabin',
+    cover: '/assets/sections/cover-motion.jpg',
     description:
-      '以水晶面罩、皮肤质感和近距离人物凝视构成美妆影像，突出透明材质、面部光影与未来感妆容。',
-    stat: 'Beauty Film',
+      '问界 M9 家庭出行视频，从座舱视角呈现智能驾驶、亲子场景和高端家庭用车的安全感。',
+    stat: 'Family Film',
     media: [
       {
         kind: 'video',
-        src: '/assets/sections/project-06/film.mp4',
-        sources: [{ src: '/assets/sections/project-06/film.mp4', type: 'video/mp4' }],
-        poster: '/assets/sections/project-06/cover.png',
-        label: 'Crystal mask beauty motion'
+        src: '/assets/sections/wenjie-m9-family-film-web.mp4',
+        sources: [{ src: '/assets/sections/wenjie-m9-family-film-web.mp4', type: 'video/mp4' }],
+        poster: '/assets/works/auto-wenjie-m9-01.jpg',
+        label: 'Wenjie M9 family drive motion'
       }
     ]
   },
@@ -218,6 +224,13 @@ const projectSections = [
         kind: 'image',
         src: '/assets/sections/project-08/cover.jpg',
         label: 'Huawei orange sea key frame'
+      },
+      {
+        kind: 'video',
+        src: '/assets/sections/project-08/film-web.mp4',
+        sources: [{ src: '/assets/sections/project-08/film-web.mp4', type: 'video/mp4' }],
+        poster: '/assets/sections/project-08/cover.jpg',
+        label: 'Huawei orange sea motion'
       }
     ]
   },
@@ -245,9 +258,11 @@ const projectSections = [
     stat: 'Motion Poster',
     media: [
       {
-        kind: 'image',
-        src: '/assets/sections/project-10/cover.jpg',
-        label: 'Porsche 911 motion poster key frame'
+        kind: 'video',
+        src: '/assets/sections/project-10/film-web.mp4',
+        sources: [{ src: '/assets/sections/project-10/film-web.mp4', type: 'video/mp4' }],
+        poster: '/assets/sections/project-10/cover.jpg',
+        label: 'Porsche 911 motion poster'
       }
     ]
   }
