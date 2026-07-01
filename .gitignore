@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.pnpm-store/
+/assets/
+/个人站/
+public/**/*.mov
+public/assets/about-bg-video.mp4
+public/assets/sections/beauty-fragrance-film.mp4
+public/assets/sections/bmw-m4-film.mp4
+public/assets/sections/cartier-panthere-film.mp4
+public/assets/sections/final-motion-film.mp4
+public/assets/sections/project-07/film.mp4
+public/assets/sections/project-08/film.mp4
+public/assets/sections/project-10/film.mp4
+.DS_Store
