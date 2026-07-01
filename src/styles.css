@@ -130,6 +130,7 @@ main {
 
 .heroVideo {
   opacity: 0.95;
+  background: #160003 url("/assets/hero-poster.png") center / cover no-repeat;
   filter: saturate(1.25) contrast(1.1);
 }
 

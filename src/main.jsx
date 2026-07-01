@@ -319,6 +319,8 @@ function LazyVideo({
   preload = 'metadata',
   autoPlay = true,
   loop = true,
+  minLoadWidth = 0,
+  deferMs = 0,
   ...props
 }) {
   const videoRef = React.useRef(null);
@@ -331,31 +333,54 @@ function LazyVideo({
       return undefined;
     }
 
+    if (minLoadWidth > 0 && window.innerWidth < minLoadWidth) {
+      return undefined;
+    }
+
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const savesData = navigator.connection?.saveData;
     if (prefersReducedMotion || savesData) {
       return undefined;
     }
 
+    let observer;
+    let loadTimer;
+    let loadQueued = false;
+    const queueLoad = () => {
+      if (loadQueued) {
+        return;
+      }
+
+      loadQueued = true;
+      if (deferMs > 0) {
+        loadTimer = window.setTimeout(() => setShouldLoad(true), deferMs);
+      } else {
+        setShouldLoad(true);
+      }
+    };
+
     if (!('IntersectionObserver' in window)) {
-      setShouldLoad(true);
       setIsVisible(true);
+      queueLoad();
       return undefined;
     }
 
-    const observer = new IntersectionObserver(
+    observer = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
         if (entry.isIntersecting) {
-          setShouldLoad(true);
+          queueLoad();
         }
       },
       { rootMargin, threshold: 0.01 }
     );
 
     observer.observe(video);
-    return () => observer.disconnect();
-  }, [rootMargin]);
+    return () => {
+      window.clearTimeout(loadTimer);
+      observer?.disconnect();
+    };
+  }, [deferMs, minLoadWidth, rootMargin]);
 
   React.useEffect(() => {
     const video = videoRef.current;
@@ -588,6 +613,8 @@ function Hero() {
         poster="/assets/hero-poster.png"
         sources={[{ src: '/assets/zunjie-hero.mp4', type: 'video/mp4' }]}
         rootMargin="1400px 0px"
+        minLoadWidth={900}
+        deferMs={1800}
         aria-hidden="true"
       />
       <div className="scanLayer" aria-hidden="true" />
@@ -916,6 +943,8 @@ function Advantages() {
       <LazyVideo
         className="strengthsVideo motionVideo"
         sources={[{ src: '/assets/strengths-bg-video.mp4', type: 'video/mp4' }]}
+        minLoadWidth={900}
+        deferMs={800}
         aria-hidden="true"
       />
       <div className="sectionLabel">Core Strengths</div>
@@ -956,6 +985,8 @@ function Contact() {
       <LazyVideo
         className="contactVideo motionVideo"
         sources={[{ src: '/assets/contact-bg-video.mp4', type: 'video/mp4' }]}
+        minLoadWidth={900}
+        deferMs={800}
         aria-hidden="true"
       />
       <div className="contactHalo" />
