@@ -54,6 +54,12 @@ video {
   max-width: 100%;
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 main {
   width: min(calc(100% - 92px), var(--max));
   margin: 0 auto;
@@ -1971,4 +1977,445 @@ main {
     opacity: 0.72;
   }
 
+}
+
+@media (max-width: 900px) {
+  body::before {
+    background-size: 44px 44px;
+    opacity: 0.16;
+  }
+
+  main {
+    width: calc(100% - 24px);
+    padding: 12px 0 40px;
+  }
+
+  .stage + .stage,
+  .stage + .section,
+  .section + .stage {
+    margin-top: 12px;
+  }
+
+  .stage,
+  .section {
+    box-shadow: 0 16px 46px rgba(0, 0, 0, 0.36);
+  }
+
+  .hero {
+    min-height: auto;
+    padding-bottom: 16px;
+  }
+
+  .nav {
+    height: auto;
+    min-height: 68px;
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .brand {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 auto;
+  }
+
+  .contactButton,
+  .navLinks a,
+  .contactLinks a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .heroTopline {
+    left: auto;
+    right: auto;
+    padding: 0 16px;
+    margin-top: 4px;
+    font-size: 13px;
+  }
+
+  .heroTitleBlock {
+    width: calc(100% - 32px);
+    margin: 28px 0 0 16px;
+  }
+
+  .heroTitleBlock p {
+    font-size: 16px;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    font-size: clamp(58px, 17vw, 104px);
+    letter-spacing: -0.04em;
+  }
+
+  .heroInfoGrid {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 30px 16px 0;
+  }
+
+  .heroMetric {
+    min-height: 104px;
+    padding: 14px 12px;
+  }
+
+  .heroMetric span {
+    max-width: 120px;
+    font-size: 11px;
+  }
+
+  .heroMetric strong {
+    left: 12px;
+    right: 12px;
+    bottom: 14px;
+    max-width: calc(100% - 24px);
+    font-size: clamp(30px, 18cqw, 54px);
+  }
+
+  .profilePanel {
+    min-height: auto;
+    padding: 16px;
+  }
+
+  .brandFlipPanel::before {
+    inset: 10px;
+  }
+
+  .brandGridShell {
+    position: relative;
+    inset: auto;
+    padding: 34px 0 10px;
+  }
+
+  .brandGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .brandTileFront span {
+    left: 9px;
+    top: 8px;
+    font-size: 10px;
+  }
+
+  .brandLogo {
+    min-height: 48px;
+  }
+
+  .brandLogoImage {
+    max-height: 54px;
+  }
+
+  .brandCenterCopy {
+    font-size: clamp(38px, 12vw, 64px);
+  }
+
+  .section,
+  .strengthsPanel,
+  .contactEnd {
+    padding: 22px;
+  }
+
+  .sectionHeader {
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  .sectionHeader h2,
+  .strengthsPanel h2,
+  .contactEnd h2 {
+    width: 100%;
+    max-width: 100%;
+    font-size: clamp(44px, 14vw, 76px);
+  }
+
+  .sectionHeader p {
+    max-width: 100%;
+  }
+
+  .coverGrid {
+    gap: 14px;
+  }
+
+  .coverCard::before,
+  .projectDetail::before {
+    inset: 10px;
+  }
+
+  .coverCard img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .coverCard span {
+    padding: 0 16px;
+    font-size: 11px;
+  }
+
+  .coverCard h3 {
+    margin: 18px 16px 8px;
+    font-size: clamp(34px, 10.5vw, 46px);
+  }
+
+  .coverCard p {
+    margin: 8px 16px 16px;
+    font-size: 11px;
+  }
+
+  .coverCard strong {
+    margin: 0 16px 16px;
+    min-height: 32px;
+  }
+
+  .projectDetail {
+    min-height: auto;
+  }
+
+  .detailBack {
+    position: relative;
+    top: auto;
+    right: auto;
+    display: flex;
+    width: fit-content;
+    min-height: 44px;
+    align-items: center;
+    margin: 12px 12px 0 auto;
+    padding: 12px 14px;
+  }
+
+  .detailIntro {
+    width: 100%;
+    padding: 18px 18px 20px;
+  }
+
+  .detailIntro h3 {
+    font-size: clamp(40px, 13vw, 62px);
+  }
+
+  .detailIntro p {
+    margin-top: 18px;
+    font-size: 13px;
+  }
+
+  .detailIntro strong {
+    margin-top: 22px;
+    font-size: clamp(32px, 10vw, 54px);
+  }
+
+  .detailExperience {
+    padding: 0 10px 10px;
+  }
+
+  .detailVideoPanel,
+  .detailCarousel {
+    min-height: auto;
+    padding: 54px 10px 24px;
+  }
+
+  .detailVideoFrame video,
+  .carouselFrame img {
+    max-height: min(58vh, 540px);
+  }
+
+  .detailPlayButton {
+    width: clamp(78px, 24vw, 112px);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+  }
+
+  .detailPlayButton::before {
+    margin-bottom: 6px;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+    border-left-width: 16px;
+  }
+
+  .detailPlayButton span {
+    bottom: 22px;
+  }
+
+  .carouselControls {
+    left: 12px;
+    right: 12px;
+    bottom: 44px;
+    gap: 10px;
+  }
+
+  .carouselControls > button {
+    min-width: 58px;
+    min-height: 40px;
+    padding: 9px 10px;
+  }
+
+  .carouselDots {
+    max-width: 42vw;
+    overflow: hidden;
+    gap: 5px;
+  }
+
+  .carouselDots button {
+    width: 20px;
+  }
+
+  .strengthsPanel {
+    min-height: auto;
+  }
+
+  .strengthsPanel::before,
+  .contactEnd::before {
+    inset: 12px;
+    border-radius: 28px;
+    transform: none;
+  }
+
+  .strengthsPanel h2 {
+    margin: 10px 0 28px;
+  }
+
+  .strengthCard {
+    min-height: 190px;
+    padding: 20px;
+  }
+
+  .strengthCard strong {
+    padding-top: 28px;
+  }
+
+  .contactEnd {
+    min-height: auto;
+    justify-content: flex-start;
+  }
+
+  .contactEnd .panelMeta {
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .contactEnd p {
+    width: 100%;
+    margin: 24px 0 0;
+    font-size: 14px;
+    line-height: 1.72;
+  }
+
+  .contactLinks {
+    width: 100%;
+    margin: 28px 0 0;
+    flex-direction: column;
+  }
+
+  .contactLinks a {
+    width: 100%;
+    min-height: 46px;
+    padding: 13px 14px;
+    justify-content: center;
+    overflow-wrap: anywhere;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    width: calc(100% - 16px);
+    padding-top: 8px;
+  }
+
+  .nav {
+    padding: 12px;
+  }
+
+  .contactButton {
+    padding-inline: 12px;
+  }
+
+  .heroTopline {
+    padding-inline: 12px;
+  }
+
+  .heroTitleBlock {
+    width: calc(100% - 24px);
+    margin-left: 12px;
+  }
+
+  .hero h1 {
+    font-size: clamp(52px, 18vw, 78px);
+  }
+
+  .heroInfoGrid {
+    margin-inline: 12px;
+  }
+
+  .heroMetric {
+    min-height: 96px;
+  }
+
+  .brandGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .brandCenterCopy {
+    font-size: clamp(34px, 13vw, 48px);
+  }
+
+  .section,
+  .strengthsPanel,
+  .contactEnd {
+    padding: 18px;
+  }
+
+  .sectionHeader h2,
+  .strengthsPanel h2,
+  .contactEnd h2 {
+    font-size: clamp(38px, 14vw, 58px);
+  }
+
+  .coverCard img {
+    aspect-ratio: 1 / 1;
+  }
+
+  .coverCard h3 {
+    font-size: clamp(30px, 11vw, 40px);
+  }
+
+  .detailIntro {
+    padding-inline: 14px;
+  }
+
+  .detailVideoPanel,
+  .detailCarousel {
+    padding-inline: 8px;
+  }
+
+  .carouselFrame figcaption {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .carouselControls {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  .carouselDots {
+    max-width: 34vw;
+  }
+}
+
+@media (max-width: 360px) {
+  .heroInfoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .brandGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }

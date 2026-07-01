@@ -466,20 +466,36 @@ function usePortfolioMotion() {
         }
 
         if (title) {
-          gsap.from(title, {
-            autoAlpha: 0,
-            xPercent: -18,
-            scaleX: 1.22,
-            letterSpacing: '0.02em',
-            filter: 'blur(6px)',
-            transformOrigin: '0% 50%',
-            duration: 1.35,
-            ease: cinematic,
-            scrollTrigger: {
-              trigger: section,
-              start: 'top 70%',
-              once: true
-            }
+          media.add('(min-width: 900px)', () => {
+            gsap.from(title, {
+              autoAlpha: 0,
+              xPercent: -18,
+              scaleX: 1.22,
+              letterSpacing: '0.02em',
+              filter: 'blur(6px)',
+              transformOrigin: '0% 50%',
+              duration: 1.35,
+              ease: cinematic,
+              scrollTrigger: {
+                trigger: section,
+                start: 'top 70%',
+                once: true
+              }
+            });
+          });
+
+          media.add('(max-width: 899px)', () => {
+            gsap.from(title, {
+              autoAlpha: 0,
+              y: 22,
+              duration: 0.9,
+              ease: smooth,
+              scrollTrigger: {
+                trigger: section,
+                start: 'top 78%',
+                once: true
+              }
+            });
           });
         }
 
@@ -521,21 +537,23 @@ function usePortfolioMotion() {
         });
 
         if (video) {
-          gsap.fromTo(
-            video,
-            { scale: 1.08, yPercent: -4 },
-            {
-              scale: 1.02,
-              yPercent: 5,
-              ease: 'none',
-              scrollTrigger: {
-                trigger: section,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: 0.9
+          media.add('(min-width: 900px)', () => {
+            gsap.fromTo(
+              video,
+              { scale: 1.08, yPercent: -4 },
+              {
+                scale: 1.02,
+                yPercent: 5,
+                ease: 'none',
+                scrollTrigger: {
+                  trigger: section,
+                  start: 'top bottom',
+                  end: 'bottom top',
+                  scrub: 0.9
+                }
               }
-            }
-          );
+            );
+          });
         }
       });
 
