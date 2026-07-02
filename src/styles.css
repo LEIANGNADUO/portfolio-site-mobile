@@ -152,9 +152,10 @@ main {
   overflow: hidden;
   contain: paint;
   background:
-    radial-gradient(circle at 50% 44%, rgba(255, 41, 52, 0.72), transparent 24rem),
-    radial-gradient(circle at 82% 18%, rgba(255, 104, 64, 0.26), transparent 18rem),
-    radial-gradient(circle at 14% 82%, rgba(120, 0, 18, 0.52), transparent 25rem),
+    radial-gradient(circle at 50% 42%, rgba(255, 36, 54, 0.9), transparent 26rem),
+    radial-gradient(circle at 58% 48%, rgba(255, 248, 238, 0.16), transparent 16rem),
+    radial-gradient(circle at 82% 18%, rgba(255, 104, 64, 0.32), transparent 18rem),
+    radial-gradient(circle at 14% 82%, rgba(120, 0, 18, 0.58), transparent 25rem),
     linear-gradient(128deg, #050202 0%, #130003 34%, #3d030a 63%, #070203 100%);
 }
 
@@ -202,7 +203,7 @@ main {
 }
 
 .heroMotionBase {
-  opacity: 0.72;
+  opacity: 0.86;
   background:
     radial-gradient(ellipse at 50% 45%, rgba(255, 32, 46, 0.78), transparent 31%),
     radial-gradient(ellipse at 50% 58%, rgba(255, 122, 70, 0.22), transparent 38%),
@@ -224,21 +225,22 @@ main {
 }
 
 .heroMotionShowcase {
-  inset: 16% 8% auto;
-  height: min(42vw, 430px);
-  min-height: 280px;
+  inset: 12% 4% auto;
+  height: min(47vw, 500px);
+  min-height: 340px;
   border: 1px solid rgba(255, 248, 238, 0.13);
-  border-radius: 26px;
+  border-radius: 30px;
   overflow: hidden;
-  opacity: 0.78;
+  opacity: 0.94;
   background:
-    linear-gradient(90deg, rgba(2, 2, 3, 0.94), rgba(8, 6, 7, 0.86) 45%, rgba(15, 13, 13, 0.76)),
-    radial-gradient(circle at 72% 52%, rgba(255, 248, 238, 0.16), transparent 18rem);
+    linear-gradient(90deg, rgba(0, 0, 0, 0.98), rgba(7, 4, 5, 0.94) 44%, rgba(19, 13, 13, 0.86)),
+    radial-gradient(circle at 76% 50%, rgba(255, 248, 238, 0.28), transparent 18rem),
+    radial-gradient(circle at 55% 50%, rgba(255, 0, 36, 0.18), transparent 20rem);
   box-shadow:
     0 34px 90px rgba(0, 0, 0, 0.62),
-    0 0 70px rgba(255, 0, 28, 0.34),
+    0 0 104px rgba(255, 0, 28, 0.58),
     inset 0 0 0 1px rgba(255, 248, 238, 0.04);
-  transform: perspective(1200px) rotateX(2deg) rotateY(-7deg) translate3d(10%, 2%, 0);
+  transform: perspective(1200px) rotateX(2deg) rotateY(-6deg) translate3d(6%, 1%, 0);
   animation: heroShowcaseFloat 8s ease-in-out infinite alternate;
 }
 
@@ -313,19 +315,29 @@ main {
 
 .heroMotionFigure {
   position: absolute;
-  right: 8%;
-  bottom: -6%;
-  width: min(36vw, 410px);
-  height: 86%;
-  opacity: 0.86;
+  right: 6%;
+  bottom: -9%;
+  width: min(42vw, 520px);
+  height: 96%;
+  opacity: 0.98;
   background:
-    radial-gradient(ellipse at 50% 21%, rgba(255, 248, 238, 0.56), rgba(255, 248, 238, 0.12) 18%, transparent 24%),
-    radial-gradient(ellipse at 48% 42%, rgba(255, 248, 238, 0.3), rgba(255, 248, 238, 0.08) 30%, transparent 44%),
-    radial-gradient(ellipse at 60% 72%, rgba(255, 248, 238, 0.22), rgba(255, 248, 238, 0.07) 32%, transparent 46%),
-    linear-gradient(130deg, transparent 0 38%, rgba(255, 248, 238, 0.28) 44%, rgba(0, 0, 0, 0.78) 68%, transparent 82%);
-  filter: grayscale(1) contrast(1.36) brightness(0.84);
-  clip-path: polygon(42% 0, 60% 4%, 72% 20%, 64% 38%, 77% 54%, 68% 100%, 22% 100%, 32% 64%, 22% 42%, 34% 24%);
+    radial-gradient(ellipse at 52% 17%, rgba(255, 248, 238, 0.82), rgba(255, 248, 238, 0.22) 18%, transparent 26%),
+    radial-gradient(ellipse at 48% 40%, rgba(255, 248, 238, 0.48), rgba(255, 248, 238, 0.12) 30%, transparent 45%),
+    radial-gradient(ellipse at 62% 72%, rgba(255, 248, 238, 0.34), rgba(255, 248, 238, 0.08) 34%, transparent 48%),
+    linear-gradient(130deg, transparent 0 34%, rgba(255, 248, 238, 0.46) 43%, rgba(0, 0, 0, 0.8) 68%, transparent 84%);
+  filter: grayscale(1) contrast(1.58) brightness(1.02);
+  clip-path: polygon(42% 0, 61% 4%, 74% 18%, 66% 37%, 80% 54%, 70% 100%, 18% 100%, 31% 66%, 21% 42%, 34% 22%);
   animation: heroFigureBreathe 7s ease-in-out infinite alternate;
+}
+
+.heroMotionFigure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(110deg, transparent 0 42%, rgba(255, 255, 255, 0.34) 45%, transparent 49%),
+    radial-gradient(circle at 58% 22%, rgba(255, 255, 255, 0.24), transparent 18%);
+  mix-blend-mode: screen;
 }
 
 .heroMotionMenu {
@@ -446,11 +458,11 @@ main {
 
 @keyframes heroShowcaseFloat {
   from {
-    transform: perspective(1200px) rotateX(2deg) rotateY(-7deg) translate3d(9%, 3%, 0);
+    transform: perspective(1200px) rotateX(2deg) rotateY(-6deg) translate3d(6%, 2%, 0);
   }
 
   to {
-    transform: perspective(1200px) rotateX(0deg) rotateY(-4deg) translate3d(7%, -1%, 0);
+    transform: perspective(1200px) rotateX(0deg) rotateY(-3deg) translate3d(3%, -2%, 0);
   }
 }
 
