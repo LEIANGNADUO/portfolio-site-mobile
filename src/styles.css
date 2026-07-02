@@ -78,7 +78,11 @@ main {
 .motionTitle,
 .motionItem,
 .motionImage,
-.motionVideo {
+.motionVideo,
+.heroMotion,
+.heroMotionBeam,
+.heroMotionHalo,
+.heroMotionParticles span {
   will-change: transform, opacity, clip-path, filter;
 }
 
@@ -103,8 +107,19 @@ main {
   .motionTitle,
   .motionItem,
   .motionImage,
-  .motionVideo {
+  .motionVideo,
+  .heroMotion,
+  .heroMotionBeam,
+  .heroMotionHalo,
+  .heroMotionParticles span {
     will-change: auto;
+  }
+
+  .heroMotionBeam,
+  .heroMotionHalo,
+  .heroMotionParticles span,
+  .heroMotionGrid {
+    animation: none !important;
   }
 }
 
@@ -119,19 +134,207 @@ main {
   background: var(--panel);
 }
 
-.heroVideo,
+.heroMotion,
 .scanLayer {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
 
-.heroVideo {
-  opacity: 0.95;
-  background: #160003 url("/assets/hero-poster.png") center / cover no-repeat;
-  filter: saturate(1.25) contrast(1.1);
+.heroMotion {
+  overflow: hidden;
+  contain: paint;
+  background:
+    radial-gradient(circle at 72% 18%, rgba(255, 116, 65, 0.34), transparent 18rem),
+    radial-gradient(circle at 18% 76%, rgba(200, 0, 25, 0.36), transparent 26rem),
+    linear-gradient(115deg, #070304 0%, #160004 36%, #42020a 64%, #090305 100%);
+}
+
+.heroMotion::before,
+.heroMotion::after {
+  content: "";
+  position: absolute;
+  inset: -14%;
+  pointer-events: none;
+}
+
+.heroMotion::before {
+  opacity: 0.38;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 248, 238, 0.08) 0 1px,
+      transparent 1px 92px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 248, 238, 0.055) 0 1px,
+      transparent 1px 92px
+    );
+  mask-image: linear-gradient(90deg, transparent, #000 16%, #000 82%, transparent);
+  animation: heroGridDrift 18s linear infinite;
+}
+
+.heroMotion::after {
+  opacity: 0.35;
+  background:
+    radial-gradient(circle at 50% 50%, transparent 0 44%, rgba(0, 0, 0, 0.58) 72%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 28%, rgba(0, 0, 0, 0.42));
+}
+
+.heroMotionBase,
+.heroMotionGrid,
+.heroMotionBeam,
+.heroMotionHalo,
+.heroMotionParticles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.heroMotionBase {
+  opacity: 0.62;
+  background:
+    linear-gradient(105deg, transparent 0 18%, rgba(255, 23, 46, 0.42) 34%, transparent 48%),
+    linear-gradient(290deg, transparent 0 54%, rgba(255, 248, 238, 0.12) 68%, transparent 82%);
+  filter: blur(14px);
+}
+
+.heroMotionGrid {
+  opacity: 0.34;
+  background-image:
+    linear-gradient(rgba(255, 248, 238, 0.11) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 248, 238, 0.11) 1px, transparent 1px);
+  background-size: 112px 112px;
+  transform: perspective(760px) rotateX(62deg) translateY(24vh) scale(1.28);
+  transform-origin: 50% 100%;
+  animation: heroFloorPulse 7s ease-in-out infinite alternate;
+}
+
+.heroMotionBeam {
+  top: auto;
+  bottom: -26%;
+  height: 68%;
+  opacity: 0.65;
+  mix-blend-mode: screen;
+  filter: blur(18px);
+  transform-origin: 50% 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 0, 33, 0.9), rgba(255, 248, 238, 0.42), transparent);
+  clip-path: polygon(45% 0, 56% 0, 100% 100%, 0 100%);
+}
+
+.beamOne {
+  left: 46%;
+  width: 28%;
+  animation: heroBeamSweep 8s ease-in-out infinite;
+}
+
+.beamTwo {
+  left: 8%;
+  width: 21%;
+  opacity: 0.4;
+  animation: heroBeamSweep 10s ease-in-out infinite reverse;
+}
+
+.beamThree {
+  right: -3%;
+  left: auto;
+  width: 25%;
+  opacity: 0.34;
+  animation: heroBeamSweep 12s ease-in-out infinite;
+}
+
+.heroMotionHalo {
+  inset: auto 7% 13% auto;
+  width: min(48vw, 720px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 248, 238, 0.18);
+  border-radius: 50%;
+  opacity: 0.56;
+  background:
+    radial-gradient(circle, transparent 0 46%, rgba(255, 248, 238, 0.13) 47% 48%, transparent 49%),
+    conic-gradient(from 210deg, transparent, rgba(255, 255, 255, 0.28), rgba(255, 0, 32, 0.44), transparent 42%);
+  filter: blur(0.4px);
+  animation: heroHaloSpin 22s linear infinite;
+}
+
+.heroMotionParticles span {
+  position: absolute;
+  left: calc(var(--x) * 1%);
+  top: calc(var(--y) * 1%);
+  width: var(--size);
+  height: var(--size);
+  border-radius: 999px;
+  opacity: 0.46;
+  background: rgba(255, 248, 238, 0.86);
+  box-shadow: 0 0 18px rgba(255, 28, 48, 0.78);
+  animation: heroParticleFloat var(--speed) ease-in-out infinite alternate;
+  animation-delay: var(--delay);
+}
+
+.heroMotionParticles span:nth-child(1) { --x: 12; --y: 24; --size: 3px; --speed: 5s; --delay: -1s; }
+.heroMotionParticles span:nth-child(2) { --x: 28; --y: 16; --size: 2px; --speed: 7s; --delay: -3s; }
+.heroMotionParticles span:nth-child(3) { --x: 42; --y: 31; --size: 4px; --speed: 6s; --delay: -2s; }
+.heroMotionParticles span:nth-child(4) { --x: 66; --y: 18; --size: 3px; --speed: 8s; --delay: -4s; }
+.heroMotionParticles span:nth-child(5) { --x: 84; --y: 36; --size: 2px; --speed: 6s; --delay: -1s; }
+.heroMotionParticles span:nth-child(6) { --x: 18; --y: 62; --size: 2px; --speed: 9s; --delay: -5s; }
+.heroMotionParticles span:nth-child(7) { --x: 34; --y: 72; --size: 3px; --speed: 7s; --delay: -6s; }
+.heroMotionParticles span:nth-child(8) { --x: 54; --y: 58; --size: 2px; --speed: 6s; --delay: -2s; }
+.heroMotionParticles span:nth-child(9) { --x: 74; --y: 68; --size: 4px; --speed: 8s; --delay: -3s; }
+.heroMotionParticles span:nth-child(10) { --x: 91; --y: 76; --size: 2px; --speed: 5s; --delay: -2s; }
+.heroMotionParticles span:nth-child(11) { --x: 7; --y: 84; --size: 3px; --speed: 10s; --delay: -7s; }
+.heroMotionParticles span:nth-child(12) { --x: 49; --y: 86; --size: 2px; --speed: 7s; --delay: -4s; }
+.heroMotionParticles span:nth-child(13) { --x: 62; --y: 42; --size: 3px; --speed: 9s; --delay: -2s; }
+.heroMotionParticles span:nth-child(14) { --x: 96; --y: 22; --size: 2px; --speed: 6s; --delay: -5s; }
+
+@keyframes heroGridDrift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-92px, -92px, 0);
+  }
+}
+
+@keyframes heroFloorPulse {
+  from {
+    opacity: 0.22;
+    transform: perspective(760px) rotateX(62deg) translateY(24vh) scale(1.28);
+  }
+
+  to {
+    opacity: 0.46;
+    transform: perspective(760px) rotateX(62deg) translateY(18vh) scale(1.34);
+  }
+}
+
+@keyframes heroBeamSweep {
+  0%,
+  100% {
+    transform: translate3d(-10%, 0, 0) rotate(-10deg) scaleY(0.92);
+  }
+
+  50% {
+    transform: translate3d(16%, -4%, 0) rotate(8deg) scaleY(1.08);
+  }
+}
+
+@keyframes heroHaloSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes heroParticleFloat {
+  from {
+    transform: translate3d(-8px, 10px, 0);
+  }
+
+  to {
+    transform: translate3d(12px, -18px, 0);
+  }
 }
 
 .scanLayer {

@@ -435,12 +435,12 @@ function usePortfolioMotion() {
         autoAlpha: 1
       });
       gsap.set('.heroTitleBlock h1 span', { yPercent: 72 });
-      gsap.set('.heroVideo', { scale: 1.08 });
+      gsap.set('.heroMotion', { scale: 1.06 });
       gsap.set('.heroMetric', { y: 42, autoAlpha: 0 });
 
       const opening = gsap.timeline({ defaults: { ease: smooth } });
       opening
-        .to('.heroVideo', {
+        .to('.heroMotion', {
           scale: 1,
           duration: 2.4,
           clearProps: 'transform',
@@ -608,15 +608,19 @@ function Hero() {
   return (
     <section className="stage hero" id="top">
       <div className="motionCurtain" aria-hidden="true" />
-      <LazyVideo
-        className="heroVideo motionVideo"
-        poster="/assets/hero-poster.png"
-        sources={[{ src: '/assets/zunjie-hero.mp4', type: 'video/mp4' }]}
-        rootMargin="1400px 0px"
-        minLoadWidth={900}
-        deferMs={1800}
-        aria-hidden="true"
-      />
+      <div className="heroMotion" aria-hidden="true">
+        <div className="heroMotionBase" />
+        <div className="heroMotionGrid" />
+        <div className="heroMotionBeam beamOne" />
+        <div className="heroMotionBeam beamTwo" />
+        <div className="heroMotionBeam beamThree" />
+        <div className="heroMotionHalo" />
+        <div className="heroMotionParticles">
+          {Array.from({ length: 14 }, (_, index) => (
+            <span key={index} />
+          ))}
+        </div>
+      </div>
       <div className="scanLayer" aria-hidden="true" />
       <nav className="nav">
         <a className="brand" href="#top" aria-label="Joe Qiao Portfolio">
