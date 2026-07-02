@@ -611,6 +611,22 @@ function Hero() {
       <div className="heroMotion" aria-hidden="true">
         <div className="heroMotionBase" />
         <div className="heroMotionGrid" />
+        <div className="heroMotionShowcase">
+          <div className="heroMotionSideRail" />
+          <div className="heroMotionCopyBlock">
+            <i />
+            <i />
+            <i />
+            <i />
+          </div>
+          <div className="heroMotionFigure" />
+          <div className="heroMotionMenu">
+            <i />
+            <i />
+            <i />
+            <i />
+          </div>
+        </div>
         <div className="heroMotionBeam beamOne" />
         <div className="heroMotionBeam beamTwo" />
         <div className="heroMotionBeam beamThree" />
