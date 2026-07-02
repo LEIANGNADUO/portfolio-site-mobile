@@ -152,11 +152,13 @@ main {
   overflow: hidden;
   contain: paint;
   background:
-    radial-gradient(circle at 50% 42%, rgba(255, 36, 54, 0.9), transparent 26rem),
-    radial-gradient(circle at 58% 48%, rgba(255, 248, 238, 0.16), transparent 16rem),
-    radial-gradient(circle at 82% 18%, rgba(255, 104, 64, 0.32), transparent 18rem),
-    radial-gradient(circle at 14% 82%, rgba(120, 0, 18, 0.58), transparent 25rem),
-    linear-gradient(128deg, #050202 0%, #130003 34%, #3d030a 63%, #070203 100%);
+    linear-gradient(90deg, rgba(3, 0, 1, 0.76) 0%, rgba(21, 0, 4, 0.42) 38%, rgba(6, 0, 1, 0.28) 70%, rgba(3, 0, 1, 0.58) 100%),
+    radial-gradient(circle at 45% 36%, rgba(255, 34, 48, 0.28), transparent 24rem),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.54)),
+    url("/assets/hero-bmw-vogue-bg.jpg");
+  background-position: center 42%;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .heroMotion::before,
@@ -185,10 +187,11 @@ main {
 }
 
 .heroMotion::after {
-  opacity: 0.35;
+  opacity: 0.42;
   background:
-    radial-gradient(circle at 50% 47%, transparent 0 32%, rgba(0, 0, 0, 0.42) 68%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 28%, rgba(0, 0, 0, 0.55));
+    linear-gradient(90deg, rgba(0, 0, 0, 0.5), transparent 36%, rgba(0, 0, 0, 0.22)),
+    radial-gradient(circle at 50% 47%, transparent 0 44%, rgba(0, 0, 0, 0.52) 78%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 28%, rgba(0, 0, 0, 0.58));
 }
 
 .heroMotionBase,
@@ -203,13 +206,12 @@ main {
 }
 
 .heroMotionBase {
-  opacity: 0.86;
+  opacity: 0.28;
   background:
-    radial-gradient(ellipse at 50% 45%, rgba(255, 32, 46, 0.78), transparent 31%),
-    radial-gradient(ellipse at 50% 58%, rgba(255, 122, 70, 0.22), transparent 38%),
-    linear-gradient(105deg, transparent 0 18%, rgba(255, 23, 46, 0.34) 34%, transparent 52%),
-    linear-gradient(290deg, transparent 0 54%, rgba(255, 248, 238, 0.1) 68%, transparent 82%);
-  filter: blur(18px);
+    radial-gradient(ellipse at 44% 42%, rgba(255, 22, 44, 0.76), transparent 30%),
+    linear-gradient(105deg, transparent 0 18%, rgba(255, 23, 46, 0.24) 34%, transparent 52%);
+  filter: blur(22px);
+  mix-blend-mode: screen;
   animation: heroAtmosphere 9s ease-in-out infinite alternate;
 }
 
@@ -225,6 +227,7 @@ main {
 }
 
 .heroMotionShowcase {
+  display: none;
   inset: 12% 4% auto;
   height: min(47vw, 500px);
   min-height: 340px;
@@ -2388,6 +2391,10 @@ main {
   .hero {
     min-height: auto;
     padding-bottom: 16px;
+  }
+
+  .heroMotion {
+    background-position: 48% top;
   }
 
   .heroMotionShowcase {
