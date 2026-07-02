@@ -141,6 +141,7 @@ main {
 }
 
 .heroMotion,
+.heroVideo,
 .scanLayer {
   position: absolute;
   inset: 0;
@@ -155,10 +156,16 @@ main {
     linear-gradient(90deg, rgba(3, 0, 1, 0.76) 0%, rgba(21, 0, 4, 0.42) 38%, rgba(6, 0, 1, 0.28) 70%, rgba(3, 0, 1, 0.58) 100%),
     radial-gradient(circle at 45% 36%, rgba(255, 34, 48, 0.28), transparent 24rem),
     linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.54)),
-    url("/assets/hero-bmw-vogue-bg.jpg");
-  background-position: center 42%;
+    url("/assets/zunjie-hero-web-poster.jpg");
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.heroVideo {
+  object-fit: cover;
+  opacity: 0.96;
+  filter: saturate(1.14) contrast(1.06) brightness(0.74);
 }
 
 .heroMotion::before,

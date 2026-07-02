@@ -609,6 +609,15 @@ function Hero() {
     <section className="stage hero" id="top">
       <div className="motionCurtain" aria-hidden="true" />
       <div className="heroMotion" aria-hidden="true">
+        <LazyVideo
+          className="heroVideo motionVideo"
+          poster="/assets/zunjie-hero-web-poster.jpg"
+          sources={[{ src: '/assets/zunjie-hero-web-1280.mp4', type: 'video/mp4' }]}
+          rootMargin="1400px 0px"
+          minLoadWidth={760}
+          deferMs={900}
+          aria-hidden="true"
+        />
         <div className="heroMotionBase" />
         <div className="heroMotionGrid" />
         <div className="heroMotionShowcase">
