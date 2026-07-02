@@ -210,6 +210,13 @@ const projectSections = [
         kind: 'image',
         src: '/assets/sections/project-07/cover.jpg',
         label: 'Space dream key frame'
+      },
+      {
+        kind: 'video',
+        src: '/assets/sections/project-07/film-web.mp4',
+        sources: [{ src: '/assets/sections/project-07/film-web.mp4', type: 'video/mp4' }],
+        poster: '/assets/sections/project-07/cover.jpg',
+        label: "Child's space dream film"
       }
     ]
   },
