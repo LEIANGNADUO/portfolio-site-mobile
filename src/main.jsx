@@ -148,9 +148,11 @@ const projectSections = [
         label: 'BMW M4 key frame'
       },
       {
-        kind: 'image',
-        src: '/assets/sections/bmw-m4-shell.jpg',
-        label: 'Sculptural reference frame'
+        kind: 'video',
+        src: '/assets/sections/bmw-m4-film-web.mp4',
+        sources: [{ src: '/assets/sections/bmw-m4-film-web.mp4', type: 'video/mp4' }],
+        poster: '/assets/sections/bmw-m4-shell.jpg',
+        label: 'BMW M4 motion experiment'
       }
     ]
   },
@@ -636,9 +638,6 @@ function Hero() {
             <i />
           </div>
         </div>
-        <div className="heroMotionBeam beamOne" />
-        <div className="heroMotionBeam beamTwo" />
-        <div className="heroMotionBeam beamThree" />
         <div className="heroMotionHalo" />
         <div className="heroMotionParticles">
           {Array.from({ length: 14 }, (_, index) => (
